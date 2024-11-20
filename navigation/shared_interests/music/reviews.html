@@ -211,19 +211,19 @@ permalink: /music/reviews.html/
         from browser import document
 
         def check_guess(event):
-            # The correct answer
+            
             correct_instrument = "guitar"
             
-            # Get the player's guess
+            
             guess = document["guess"].value.strip()
             
-            # Check the guess
+            
             if guess.lower() == correct_instrument:
                 document["result"].text = "Correct! The instrument is a guitar!"
             else:
                 document["result"].text = "Wrong! Try again."
 
-        # Attach the function to the button's click event
+        
         document["submit"].bind("click", check_guess)
     </script>
 </body>
