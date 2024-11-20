@@ -188,3 +188,43 @@ permalink: /music/reviews.html/
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+<html>
+<head>
+    <title>Guess the Instrument Game</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js"></script>
+</head>
+<body onload="brython()">
+    <h1>Guess the Instrument Game</h1>
+    <p>Hint: It's a string instrument!</p>
+    <input id="guess" type="text" placeholder="Your guess here" />
+    <button id="submit">Submit</button>
+    <p id="result"></p>
+
+    <script type="text/python">
+        from browser import document
+
+        def check_guess(event):
+            # The correct answer
+            correct_instrument = "guitar"
+            
+            # Get the player's guess
+            guess = document["guess"].value.strip()
+            
+            # Check the guess
+            if guess.lower() == correct_instrument:
+                document["result"].text = "Correct! The instrument is a guitar!"
+            else:
+                document["result"].text = "Wrong! Try again."
+
+        # Attach the function to the button's click event
+        document["submit"].bind("click", check_guess)
+    </script>
+</body>
+</html>
